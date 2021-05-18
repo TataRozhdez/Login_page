@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'proxima-novas';
+  src: url('./ProximaNova-Regular.otf'), url('./ProximaNova-Bold.otf');
+}
+
+body {
+  font-family: proxima-nova, sans-serif;
+  color: #2c353b;
+}
+
+#root {
+  background-color: #fed839;
+  overflow-x: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to top,
+    rgb(238 80 182 / 50%) 0%,
+    rgba(194, 233, 251, 0) 100%
+  );
+}
+
+.custom-control-label::before {
+  background-color: inherit;
+}
+
+.alert {
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+form {
+  max-width: 300px;
+}
+
+.form-control:focus,
+input[type='email'],
+input[type='checkbox'],
+.form-control,
+input {
+  background-color: inherit !important;
+  border: 1px solid #000 !important;
+}
+
+.cur-point {
+  cursor: pointer;
+}
+
+.plug {
+  z-index: 9999;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #cecece3d;
+}

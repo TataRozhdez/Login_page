@@ -32,6 +32,7 @@ export const appReducer = (state = initialState, action) => {
         ...state,
         token: null,
         isAuthenticated: false,
+        flights: [],
       }
     case GET_FLIGHTS:
       return {

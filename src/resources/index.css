@@ -3,9 +3,10 @@
   src: url('./ProximaNova-Regular.otf'), url('./ProximaNova-Bold.otf');
 }
 
-body {
+html {
   font-family: proxima-nova, sans-serif;
   color: #2c353b;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -13,11 +14,6 @@ body {
   overflow-x: hidden;
   width: 100vw;
   min-height: 100vh;
-  background-image: linear-gradient(
-    to top,
-    rgb(238 80 182 / 50%) 0%,
-    rgba(194, 233, 251, 0) 100%
-  );
 }
 
 .custom-control-label::before {
@@ -59,4 +55,24 @@ input {
   left: 0;
   bottom: 0;
   background-color: #cecece3d;
+}
+
+.container {
+  position: relative;
+  z-index: 100;
+}
+
+.bck-img {
+  width: 100%;
+  z-index: 1;
+  position: fixed;
+  /* height: 500px; */
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bck-img img {
+  height: 100%;
+  width: 100%;
 }

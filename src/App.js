@@ -5,8 +5,6 @@ import Login from './pages/Login'
 import Main from './pages/Main'
 
 const App = ({ store }) => {
-  console.log(store)
-
   return (
     <Switch>
       {!store.isAuthenticated && <Route path='/login' component={Login} />}

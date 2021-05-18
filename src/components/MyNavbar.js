@@ -18,7 +18,7 @@ const MyNavbar = ({ store, history }) => {
           <Nav>Hola, {store.token.email} &#9829;</Nav>
           <Nav
             className='cur-point text-secondary ml-2'
-            onClick={() => dispatch(logout(history))}
+            onClick={() => dispatch(logout(history, dispatch))}
           >
             Exit
           </Nav>

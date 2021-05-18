@@ -1,4 +1,4 @@
-import { authenticateUser } from '../sdk'
+import { authenticateUser, getFlights } from '../sdk'
 import { LOGIN_SUCCESS, ERR_MSG, LOAD_USER, LOGOUT, GET_FLIGHTS } from './types'
 
 export const dispatchError = (txt) => {
@@ -58,8 +58,30 @@ export const logout = (history, dispatch) => {
 }
 
 //get flights
-export const getAllFlights = (dispatch) => {
-  dispatch({
-    type: GET_FLIGHTS,
-  })
+export const getAllFlights = async (token, dispatch) => {
+  try {
+    await getFlights(token)
+      .then((res) => res.json())
+      .then((data) => {
+        const arrKey = Object.keys(data.data)
+        const arrData = []
+
+        arrKey.map((a) => arrData.push(data.data[a]))
+        arrData.sort((s, ss) => {
+          s = new Date(s.date)
+          ss = new Date(ss.date)
+          return s > ss ? -1 : s < ss ? 1 : 0
+        })
+
+        dispatch({
+          type: GET_FLIGHTS,
+          payload: arrData,
+        })
+      })
+  } catch (error) {
+    dispatch({
+      type: ERR_MSG,
+      payload: 'Something went wrong...',
+    })
+  }
 }
